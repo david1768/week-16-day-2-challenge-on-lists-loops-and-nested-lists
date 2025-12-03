@@ -25,6 +25,12 @@ Each student request must include:
 - Item requested  
 - Quantity requested  
 
+requests = [
+    ["Ava", "Markers", 4],
+    ["Jordan", "Notebooks", 7],
+    ["Miles", "Glue Sticks", 2]
+]
+
 ---
 
 ### 2. Identify Key Information
@@ -32,10 +38,20 @@ From your collection:
 - Identify the **first student’s name**
 - Identify the **last student’s requested item only**
 
+first_student_name = requests[0][0]
+last_student_item = requests[-1][1]
+
+print("First student's name:", first_student_name)
+print("Last student's requested item:", last_student_item)
+
+
 ---
 
 ### 3. Quantity Extraction
 Create a **separate list that contains only the quantities requested** by the students.
+
+quantities = [req[2] for req in requests]
+print("Quantities only:", quantities)
 
 ---
 
@@ -45,11 +61,18 @@ Analyze the quantities:
   “Large order detected!”
 - Otherwise label the order:
   “Orders within normal limits.”
+if any(q > 5 for q in quantities):
+    print("Large order detected!")
+else:
+    print("Orders within normal limits.")
+
 
 ---
 
 ### 5. Quantity Organization
 Re-organize the quantity list from **smallest to largest** and display the final result.
+sorted_quantities = sorted(quantities)
+print("Quantities sorted:", sorted_quantities)
 
 ---
 
@@ -63,9 +86,23 @@ Classroom 3: 10, 6, 4
 
 Answer the following:
 
-1. What is the **middle number** in the second classroom’s list?
-2. Create a new list that extracts **only the last number** from each classroom.
-3. Explain **why this information must be stored as a nested structure instead of a single list.**
+1. What is the **middle number** in the second classroom’s list? 
+         7
+2. Create a new list that extracts **only the last number** from each classroom. 
+
+classrooms = [
+    [8, 12, 5],
+    [7, 3, 9],
+    [10, 6, 4]
+]
+
+last_numbers = [room[-1] for room in classrooms]
+
+print(last_numbers)
+
+
+3. Explain **why this information must be stored as a nested structure instead of a single list.** 
+because each class has its own members and it makes it more simple and understandable 
 
 ---
 
